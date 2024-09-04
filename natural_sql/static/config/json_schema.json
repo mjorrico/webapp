@@ -1,0 +1,30 @@
+{
+    "type": "json_schema",
+    "json_schema": {
+        "name": "test_format",
+        "strict": true,
+        "schema": {
+            "type": "object",
+            "properties": {
+                "SQL_query": {
+                    "type": "string",
+                    "description": "The entire working SQL query that the user is asking."
+                },
+                "is_sql_injection": {
+                    "type": "boolean",
+                    "description": "Determines whether user's query is SQL injection attempt. Returns True if it is SQL injection attempt."
+                },
+                "is_modifying": {
+                    "type": "boolean",
+                    "description": "Determines whether user's query is modifying the database. Returns True if the query is modifying."
+                }
+            },
+            "required": [
+                "SQL_query",
+                "is_sql_injection",
+                "is_modifying"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

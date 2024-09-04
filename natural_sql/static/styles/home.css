@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+
+  background: #291f1e;
+}
+
+#main-card {
+  padding: 20px;
+  margin: 10px;
+  background-color: #ccc5b9;
+  max-width: 800px;
+
+  border-radius: 10px;
+}
+
+#card-header {
+  padding-bottom: 30px;
+}
+
+#card-header > .title {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1;
+  color: #1f1f1f;
+}
+
+#card-header > .text {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #1f1f1f;
+
+  padding-top: 10px;
+}
+
+#output-wrapper {
+  background-color: #1f1f1f;
+  border-radius: 24px;
+  height: fit-content;
+
+  margin-bottom: 20px;
+  padding: 30px;
+}
+
+#output-title {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  color: #a0a0a0;
+  padding-bottom: 15px;
+}
+
+#card-output {
+  height: auto;
+  min-height: 100px;
+
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  color: #e0e0e0;
+
+  /* background-color: rgb(44, 57, 23); */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 10px;
+  align-items: center;
+}
+
+#card-output > .user_message {
+  flex: 0;
+  max-width: 70%;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-left: auto;
+  padding: 15px;
+  border-radius: 10px;
+  text-wrap: wrap;
+}
+
+#card-output > .assistant_message {
+  flex: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 15px;
+  border-radius: 10px;
+  text-wrap: wrap;
+}
+
+#card-output ol,
+#card-output ul,
+#card-output li {
+  list-style-position: inside;
+}
+
+#card-output ol > li > p,
+#card-output ul > li > p {
+  display: inline;
+}
+
+#card-footer {
+  padding-bottom: 20px;
+}
+
+#input-container {
+  padding: 5px;
+  display: flex;
+  height: fit-content;
+  justify-content: space-between;
+  align-items: end;
+  border-radius: 24px;
+  gap: 5px;
+
+  background-color: #fffcf2;
+}
+
+#textarea-container {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  border-radius: 19px;
+  padding: 10px 20px;
+}
+
+#textarea-container > textarea {
+  resize: none;
+  flex: 1;
+  border: black solid 0;
+
+  background-color: rgba(0, 0, 0, 0);
+
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  scrollbar-width: auto;
+}
+
+#textarea-container > textarea:focus {
+  outline: none;
+}
+
+#submit {
+  aspect-ratio: 1;
+  height: 38px;
+  border-radius: 19px;
+  border: black solid 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1f1f;
+}
+
+#submit:hover {
+  cursor: pointer;
+}
+
+#submit > svg {
+  height: 24px;
+  width: 24px;
+  fill: white;
+}
+
+#submit > :nth-child(1) {
+  padding-left: 4px;
+}
+
+#submit > :nth-child(2) {
+  height: 22px;
+}
+
+#submit > .hide {
+  display: none;
+}
