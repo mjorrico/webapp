@@ -2,7 +2,8 @@
   "dependencies": {
     "highlight.js": "^11.10.0",
     "marked": "^14.1.1",
-    "marked-highlight": "^2.1.4"
+    "marked-highlight": "^2.1.4",
+    "sql-formatter": "^15.4.1"
   },
   "devDependencies": {
     "webpack": "^5.94.0",

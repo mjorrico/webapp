@@ -1,6 +1,7 @@
 import { onTextareaInput, tx } from "./textarea.js";
 import { marked } from "marked";
 import { markedHighlight } from "marked-highlight";
+import { format } from "sql-formatter";
 
 const hljs = require("highlight.js/lib/core");
 
@@ -17,7 +18,7 @@ hljs.registerLanguage(
 
 marked.use(
   {
-    breaks: true,
+    breaks: false,
     renderer: {
       link({ tokens, href, text }) {
         return `<a target="_blank" href=${href}>${text}</a>`;
@@ -59,18 +60,20 @@ function displayMessage(message) {
     let is_injection = json_data["is_sql_injection"];
     let is_modifying = json_data["is_modifying"];
     let comment = json_data["query_comment"];
-    let can_display_query = ((query.length > 0) && !(is_injection));
-    let can_call_database = (can_display_query && !(is_modifying));
+    let can_display_query = query.length > 0 && !is_injection;
+    let can_call_database = can_display_query && !is_modifying;
 
-    // console.log(query, is_injection, is_modifying, comment);
-    console.log(json_data);
-    html = marked.parse(`${comment}
-
-\`\`\`sql
-${query}
-\`\`\``);
+    let text = `${comment}`;
+    if (can_display_query) {
+      query = format(query, {
+        language: "mysql",
+        tabWidth: 4,
+        keywordCase: "upper",
+      });
+      text += `\n#### Interpreted Query:\n\`\`\`sql\n${query}\n\`\`\``;
+    }
+    html = marked.parse(text);
   } else if (role === "user") {
-    newDiv.innerHTML = message["content"];
     html = marked.parse(message["content"]);
   } else {
     throw new Error(`A message with unknown role ${role}.`);
@@ -92,6 +95,8 @@ let svgSubmitStop = document.querySelector("#submit>:nth-child(2)");
 
 submitButton.addEventListener("click", () => {
   let p = new Promise((resolve, reject) => {
+    // submitButton.disabled = true;
+    console.log("Clicked!");
     let inputText = txtareaField.value.trim();
     svgSubmitPlane.classList.toggle("hide");
     svgSubmitStop.classList.toggle("hide");
@@ -123,6 +128,7 @@ submitButton.addEventListener("click", () => {
   })
     .then((jsonObj) => {
       addToList(jsonObj["choices"][0]["message"]);
+      displayField.scrollTop = displayField.scrollHeight;
     })
     .catch((err) => {
       console.log(err);
@@ -130,5 +136,6 @@ submitButton.addEventListener("click", () => {
     .finally(() => {
       svgSubmitPlane.classList.toggle("hide");
       svgSubmitStop.classList.toggle("hide");
+      // submitButton.disabled = false;
     });
 });

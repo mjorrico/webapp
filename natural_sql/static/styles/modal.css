@@ -1,0 +1,85 @@
+.modal {
+  border: 0 solid black;
+  width: fit-content;
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 1); */
+
+  background-color: rgba(0, 0, 0, 0);
+
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.modal > div.modal-wrapper {
+  background-color: rgb(31, 31, 31);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  max-width: 300px;
+  padding: 10px 20px 15px;
+}
+
+.modal::backdrop {
+  background: linear-gradient(180deg, #291f1e, rgba(0, 0, 0, 0.5));
+}
+
+.modal .title {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1;
+  font-size: 25px;
+
+  padding-top: 5px;
+  padding-bottom: 10px;
+  color: #f0f0f0;
+}
+
+.modal p {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #c0c0c0;
+  font-size: 90%;
+
+  padding-bottom: 10px;
+}
+
+.modal .button-div {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.modal button {
+  padding: 5px 10px 7px;
+  border-radius: 5px;
+  border: 0 solid black;
+
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 90%;
+
+  color: #f0f0f0;
+}
+
+.modal button#go-back-button {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal button#go-back-button:hover,
+.modal button#go-back-button:active {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal button#delete-button {
+  background-color: rgba(230, 54, 54, 0.8);
+}
+
+.modal button#delete-button:hover,
+.modal button#delete-button:active {
+  background-color: rgba(177, 36, 36, 1);
+}

@@ -1,0 +1,50 @@
+#help-dialog {
+  border: 0 solid black;
+  width: fit-content;
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 1); */
+
+  background-color: rgba(0, 0, 0, 0);
+
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.help-dialog-wrapper {
+  width: 90svw;
+  height: 90svh;
+  background-color: rgba(30, 40, 20, 1);
+  border-radius: 20px;
+}
+
+.help-dialog-wrapper > .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: inherit;
+}
+
+.help-dialog-wrapper > .head > .title {
+  flex: 1;
+  padding: 0 auto;
+  text-align: center;
+
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1;
+  font-size: 30px;
+  color: #1f1f1f;
+}
+
+.help-dialog-wrapper > .head > button {
+  height: 30px;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 0 solid black;
+}

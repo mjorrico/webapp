@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="../static/styles/home.css" />
     <link rel="stylesheet" href="../static//styles/markdown.css" />
+    <link rel="stylesheet" href="../static/styles/modal.css" />
+    <link rel="stylesheet" href="../static/styles/explanation.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,7 +35,9 @@
   <body>
     <div id="main-card">
       <div id="card-header">
-        <h1 class="title">Natural Language SQL Interface</h1>
+        <h1 class="title">
+          Natural Language SQL Interface <button class="info">?</button>
+        </h1>
         <p class="text">
           Effortlessly query this SQL database using natural language,
           eliminating the need for complex SQL knowledge.
@@ -41,7 +45,7 @@
       </div>
 
       <div id="output-wrapper">
-        <div id="output-title">Generated Result</div>
+        <div id="output-title">Generated Result<button>Clear Chat</button></div>
         <div id="card-output"></div>
       </div>
 
@@ -84,7 +88,32 @@
       </div>
     </div>
 
+    <dialog class="modal" id="modal">
+      <div class="modal-wrapper">
+        <h1 class="title">You sure?</h1>
+        <p>You're about to delete your whole conversation.</p>
+        <div class="button-div">
+          <button id="go-back-button">Go Back</button>
+          <button id="delete-button">Delete</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="help-dialog" open>
+      <div class="help-dialog-wrapper">
+        <div class="head">
+          <div class="title">What is this?</div>
+          <button>X</button>
+        </div>
+
+        <div class="explaination">
+          <div></div>
+        </div>
+      </div>
+    </dialog>
+
     <script src="../static/scripts/textarea.js" type="module"></script>
     <script src="../static/scripts/bundle.js"></script>
+    <script src="../static/scripts/modal.js"></script>
   </body>
 </html>

@@ -1,1 +1,69 @@
-User(user_id, age, address)
+-- Table: books
+CREATE TABLE books (
+    book_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2)
+);
+
+-- Table: employees
+CREATE TABLE employees (
+    employee_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
+    salary DECIMAL(10, 2) NOT NULL,
+    store_id INT,
+    FOREIGN KEY (store_id) REFERENCES stores(store_id)
+);
+
+-- Table: stores
+CREATE TABLE stores (
+    store_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    store_name VARCHAR(255) NOT NULL,
+    address TEXT NOT NULL,
+    manager_id INT,
+    FOREIGN KEY (manager_id) REFERENCES employees(employee_id)
+);
+
+-- Table: users
+CREATE TABLE users (
+    user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL
+);
+
+-- Table: transactions
+CREATE TABLE transactions (
+    transaction_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    store_id INT,
+    employee_id INT,
+    transaction_time TIMESTAMP NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
+
+-- Table: transaction_items
+CREATE TABLE transaction_items (
+    transaction_id INT NOT NULL,
+    book_id INT NOT NULL,
+    quantity INT NOT NULL CHECK (quantity > 0),
+    PRIMARY KEY (transaction_id, book_id),
+    FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id),
+    FOREIGN KEY (book_id) REFERENCES books(book_id)
+);
+
+-- Table: inventory
+CREATE TABLE inventory (
+    store_id INT NOT NULL,
+    book_id INT NOT NULL,
+    quantity INT NOT NULL CHECK (quantity >= 0),
+    PRIMARY KEY (store_id, book_id),
+    FOREIGN KEY (store_id) REFERENCES stores(store_id),
+    FOREIGN KEY (book_id) REFERENCES books(book_id)
+);
