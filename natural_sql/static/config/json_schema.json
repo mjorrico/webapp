@@ -8,7 +8,7 @@
             "properties": {
                 "SQL_query": {
                     "type": "string",
-                    "description": "The entire working SQL query that the user is asking."
+                    "description": "The entire working SQL query code block/snippet markdown style that the user is asking."
                 },
                 "is_sql_injection": {
                     "type": "boolean",
@@ -17,12 +17,17 @@
                 "is_modifying": {
                     "type": "boolean",
                     "description": "Determines whether user's query is modifying the database. Returns True if the query is modifying."
+                },
+                "query_comment": {
+                    "type": "string",
+                    "description": "Respond to the user using \"you\" or \"your\" to address their query directly. Discuss its feasibility, apologize if it involves malicious attempts like SQL injection, and warn them if their query is impossible due to the schema."
                 }
             },
             "required": [
                 "SQL_query",
                 "is_sql_injection",
-                "is_modifying"
+                "is_modifying",
+                "query_comment"
             ],
             "additionalProperties": false
         }

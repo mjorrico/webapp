@@ -15,11 +15,12 @@ body {
 
 #main-card {
   padding: 20px;
-  margin: 10px;
+  margin: 10px auto;
   background-color: #ccc5b9;
   max-width: 800px;
 
   border-radius: 10px;
+  width: 100%;
 }
 
 #card-header {
@@ -50,6 +51,7 @@ body {
 
   margin-bottom: 20px;
   padding: 30px;
+  width: 100%;
 }
 
 #output-title {
@@ -94,7 +96,7 @@ body {
   flex: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
-  padding: 15px;
+  padding: 15px 0;
   border-radius: 10px;
   text-wrap: wrap;
 }

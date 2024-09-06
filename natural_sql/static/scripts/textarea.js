@@ -1,4 +1,3 @@
-
 export const tx = document.querySelector("#myTextarea");
 tx.setAttribute("style", "height:" + (tx.scrollHeight) + "px; overflow-y: hidden");
 tx.addEventListener("input", onTextareaInput, false)

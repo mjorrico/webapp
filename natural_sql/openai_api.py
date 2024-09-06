@@ -32,7 +32,7 @@ def people_api():
         ],
         "response_format": json_schema,
     }
-    payload["messages"] += json_messages
+    payload["messages"] += json_messages[-10:]
 
     r = requests.post(
         "https://api.openai.com/v1/chat/completions",

@@ -1,0 +1,182 @@
+.markdown * {
+  padding-bottom: 5px;
+}
+
+.markdown hr {
+  margin: 24px 0;
+  padding: 0;
+}
+
+.markdown a {
+  display: inline;
+  text-decoration: none;
+  color: #c7ed86;
+
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1px 3px;
+  border-radius: 5px;
+
+  word-wrap: break-all;
+  overflow-wrap: break-all;
+  word-break: break-all;
+}
+
+.markdown a:hover,
+.markdown a:active {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.markdown a:link {
+  color: #ffffff;
+}
+
+.markdown h1 {
+  padding-bottom: 20px;
+}
+
+.markdown h2 {
+  padding-bottom: 18px;
+}
+
+.markdown h3 {
+  padding-bottom: 15px;
+}
+
+.markdown h4 {
+  padding-bottom: 12px;
+}
+
+.markdown h5 {
+  padding-bottom: 10px;
+}
+
+.markdown ol,
+.markdown ul {
+  padding-left: 30px;
+  padding-bottom: 5px;
+}
+
+.markdown li {
+  padding-bottom: 5px;
+}
+
+.markdown ol > li:last-child,
+.markdown ul > li:last-child {
+  padding-bottom: 0;
+}
+
+.markdown p {
+  padding-bottom: 5px;
+}
+
+.markdown table {
+  border: 0 solid white;
+  margin-bottom: 30px;
+  padding: 5px;
+  border-collapse: collapse;
+
+  display: block;
+  max-width: fit-content;
+  overflow-x: auto;
+}
+
+.markdown table th {
+  text-align: left;
+  padding: 10px 20px;
+  border: 1px solid #c0c0c0;
+}
+
+.markdown table td {
+  padding: 5px 20px;
+  border: 1px solid #c0c0c0;
+
+  min-width: 100px;
+}
+
+.markdown table > thead tr {
+  background-color: #181818;
+}
+
+.markdown table > tbody tr:nth-child(odd) {
+  background: #404040;
+}
+
+.markdown table > tbody tr:nth-child(even) {
+  background-color: #303030;
+}
+
+.markdown code {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+
+  background-color: #202020;
+  padding: 1px 3px;
+  border-radius: 5px;
+}
+
+.markdown .wrapper-hljs {
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #181818;
+
+  padding: 0;
+}
+
+.markdown .wrapper-hljs > .title {
+  padding: 10px 20px;
+  border-bottom: 1px solid white;
+
+  text-transform: uppercase;
+  background-color: #202020;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  color: white;
+}
+
+.markdown .wrapper-hljs > .source-code {
+  padding: 20px;
+
+  overflow-x: auto;
+}
+
+.markdown pre > code {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.hljs.language-css .hljs-selector-tag {
+  color: #b65611;
+}
+
+.hljs.language-css .hljs-selector-pseudo {
+  color: #6684e1;
+}
+
+.hljs.language-css .hljs-comment {
+  color: #6e6b5e;
+}
+
+.hljs.language-css .hljs-attribute {
+  color: #60ac39;
+}
+
+.hljs.language-sql .hljs-comment {
+  color: #516d7b;
+}
+
+.hljs.language-sql .hljs-keyword {
+  color: #257fad;
+  font-weight: bold;
+}
+
+.hljs.language-sql .hljs-operator {
+  color: #2d8f6f;
+}
+
+.hljs.language-sql .hljs-number {
+  color: #d22d72;
+}
