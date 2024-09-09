@@ -14,10 +14,10 @@ def create_app():
     app.config["SESSION_PROTECTION"] = "basic"
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:////{db_dir}/{DB_NAME}"
 
-    from .views import views
+    from .app import views
     from .starwars_api import starwars
     from .openai_api import openai
-    app.register_blueprint(views, url_prefix="/")
+    app.register_blueprint(views, url_prefix="/app")
     app.register_blueprint(starwars, url_prefix="/api/starwars")
     app.register_blueprint(openai, url_prefix="/api/openai")
 
