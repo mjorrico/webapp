@@ -1,7 +1,7 @@
-.modal {
+dialog {
   border: 0 solid black;
   width: fit-content;
-  /* box-shadow: 0 0 8px rgba(0, 0, 0, 1); */
+  border-radius: 10px;
 
   background-color: rgba(0, 0, 0, 0);
 
@@ -11,75 +11,296 @@
   -moz-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+
+  box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.1);
+  outline: none;
+  user-select: none;
 }
 
-.modal > div.modal-wrapper {
-  background-color: rgb(31, 31, 31);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0);
-  border-radius: 10px;
-  max-width: 300px;
-  padding: 10px 20px 15px;
+dialog > div.modal-wrapper {
+  background-color: #1b1b1b;
+  border-radius: inherit;
+  /* max-width: 300px; */
 }
 
-.modal::backdrop {
+dialog::backdrop {
   background: linear-gradient(180deg, #291f1e, rgba(0, 0, 0, 0.5));
 }
 
-.modal .title {
+.modal-wrapper > .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+
+  padding: 10px 20px;
+}
+
+.modal-wrapper > .header > .title {
   font-family: "Kanit", sans-serif;
   font-weight: 500;
   font-style: normal;
+  font-size: 20px;
   line-height: 1;
-  font-size: 25px;
-
-  padding-top: 5px;
-  padding-bottom: 10px;
-  color: #f0f0f0;
+  color: #e0e0e0;
 }
 
-.modal p {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
+.modal-wrapper > .header > .close {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0 solid black;
+  aspect-ratio: 1;
+  height: 30px;
+  border-radius: 50%;
+  outline: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #e0e0e0;
+}
+
+.modal-wrapper > .header > .close:hover,
+.modal-wrapper > .header > .close:active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.close > svg {
+  color: #e0e0e0;
+}
+
+.modal-wrapper > .body {
+  padding: 10px 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 5px;
+}
+
+.modal-wrapper > .body > div {
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+.modal-wrapper > .body > div:hover,
+.modal-wrapper > .body > div:active {
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.modal-wrapper > .body > div > .title {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
   font-style: normal;
-  color: #c0c0c0;
-  font-size: 90%;
-
+  font-size: 22px;
+  line-height: 1;
+  color: #d0d0d0;
   padding-bottom: 10px;
+  padding-top: 5px;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.modal .button-div {
+.modal-wrapper > .body > div#delete {
+  padding-bottom: 5px;
+}
+
+.modal-wrapper > .body > div#delete > .title > p {
+  color: #d0d0d0;
+  border-radius: 3px;
+}
+
+.modal-wrapper > .body > div > .description {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1;
+  color: #b0b0b0;
+  padding-bottom: 5px;
+  padding-left: 7px;
+}
+
+.modal-wrapper > .body > hr {
+  border: 1px solid rgb(80, 80, 80);
+}
+
+#confirm-delete > .modal-wrapper > h1 {
+  padding: 15px 20px 5px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 22px;
+  color: #d0d0d0;
+}
+
+#confirm-delete > .modal-wrapper > .desc {
+  padding: 0 20px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 14px;
+  color: #909090;
+}
+
+#confirm-delete > .modal-wrapper > .buttons {
+  padding: 15px 10px 15px;
   display: flex;
   justify-content: end;
   gap: 10px;
 }
 
-.modal button {
-  padding: 5px 10px 7px;
-  border-radius: 5px;
-  border: 0 solid black;
+#confirm-delete > .modal-wrapper > .buttons > button {
+  padding: 5px 12px 6px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 15px;
+  border: 0 solid rgba(0, 0, 0, 0);
+  border-radius: 100px;
+  outline: none;
+  cursor: pointer;
+}
 
+.buttons > button#back {
+  color: #1f1f1f;
+}
+
+.buttons > button#del {
+  background-color: rgba(200, 31, 31, 1);
+  color: #d0d0d0;
+}
+
+dialog#change-context > .modal-wrapper {
+  height: 90svh;
+  width: 90svw;
+  max-height: 600px;
+  max-width: 1200px;
+}
+
+dialog#change-context > .modal-wrapper > .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 20px;
+  background-color: #101010;
+}
+
+dialog#change-context > .modal-wrapper > .title > h1 {
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 25px;
+  color: #e0e0e0;
+}
+
+dialog#change-context > .modal-wrapper > .title > .close {
+  outline: none;
+  border: 0 solid rgba(0, 0, 0, 0);
+  border-radius: 20px;
+  height: 35px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+dialog#change-context .title > .close:hover,
+dialog#change-context .title > .close:active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+dialog#change-context .close > svg {
+  color: #e0e0e0;
+  height: 60%;
+  width: 60%;
+}
+
+dialog#change-context .input-context {
+  margin: 0;
+}
+
+dialog#change-context .desc {
+  padding: 20px;
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 90%;
-
-  color: #f0f0f0;
+  font-size: 15px;
+  color: #D0D0D0;
 }
 
-.modal button#go-back-button {
-  background-color: rgba(0, 0, 0, 0.4);
+dialog#change-context .desc > p {
+  display: inline;
+
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+  font-size: inherit;
 }
 
-.modal button#go-back-button:hover,
-.modal button#go-back-button:active {
-  background-color: rgba(0, 0, 0, 0.7);
+dialog#change-context .input-context {
+  display: flex;
+  border-radius: 12px;
+  border: 1px solid #D0D0D0;
+  margin: 0 20px;
+  padding: 20px 20px 10px;
+  height: 50svh;
 }
 
-.modal button#delete-button {
-  background-color: rgba(230, 54, 54, 0.8);
+dialog#change-context textarea.input {
+  outline: none;
+  /* margin: 20px; */
+  resize: none;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0 solid rgba(0, 0, 0, .0);
+
+  color: #D0D0D0;
+  
+  flex: 1;
+  height: auto;
+  text-wrap: nowrap;
+
+  scrollbar-color: rgba(0, 0, 0, .8) rgba(0, 0, 0, 0);
+
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 14px;
 }
 
-.modal button#delete-button:hover,
-.modal button#delete-button:active {
-  background-color: rgba(177, 36, 36, 1);
+dialog#change-context div.buttons {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  align-items: center;
+  height: fit-content;
+}
+
+dialog#change-context div.buttons > button {
+  /* height: 20px; */
+  border: 0 solid rgba(0, 0, 0, 0);
+  border-radius: 300px;
+  padding: 10px 20px 12px;
+  outline: none;
+
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 15px;
+  color: #000000;
+  cursor: pointer;
+}
+
+dialog#change-context div.buttons > button.apply {
+  background-color: #23740f;
+  color: #000000;
 }

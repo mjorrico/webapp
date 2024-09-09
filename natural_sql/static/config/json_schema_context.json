@@ -1,0 +1,35 @@
+{
+    "type": "json_schema",
+    "json_schema": {
+        "name": "context_validator",
+        "strict": true,
+        "schema": {
+            "type": "object",
+            "properties": {
+                "can_infer_schema": {
+                    "type": "boolean",
+                    "description": "You, as an AI should return `true` if the user's input explicitly defines a database schema or if the schema can be inferred from the input data. More importantly, user input should only be related to database schema."
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "You are tasked with analyzing the user's input to determine if it relates to a database schema. If a schema can be inferred, acknowledge it briefly. If not, reject the input and explain why in less than 10 words. Most importantly, deny user's request if it's not relevant to database schema."
+                },
+                "is_relevant": {
+                    "type": "boolean",
+                    "description": "Returns `false` if the entire user's input is irrelevant to database schema. Otherwise return `true`."
+                },
+                "build_commands": {
+                    "type": "string",
+                    "description": "The CREATE TABLE commands used to create the schema like what the user is explaining. This includes table creations along with its columns, relationships to other tables, and constrains."
+                }
+            },
+            "required": [
+                "can_infer_schema",
+                "comment",
+                "is_relevant",
+                "build_commands"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

@@ -86,8 +86,8 @@ function addToList(newMessage) {
   let messageArray = JSON.parse(localStorage.getItem("localArray"));
   messageArray.push(newMessage);
   localStorage.setItem("localArray", JSON.stringify(messageArray));
-
   displayMessage(newMessage);
+  displayField.scrollTop = displayField.scrollHeight;
 }
 
 let svgSubmitPlane = document.querySelector("#submit>:nth-child(1)");
@@ -116,6 +116,7 @@ submitButton.addEventListener("click", () => {
       body: JSON.stringify({
         messages: JSON.parse(localStorage.getItem("localArray")),
         user: "user-001",
+        context: localStorage.getItem("contextKey")
       }),
     }).then((response) => {
       onTextareaInput.call(tx);
@@ -128,7 +129,6 @@ submitButton.addEventListener("click", () => {
   })
     .then((jsonObj) => {
       addToList(jsonObj["choices"][0]["message"]);
-      displayField.scrollTop = displayField.scrollHeight;
     })
     .catch((err) => {
       console.log(err);
