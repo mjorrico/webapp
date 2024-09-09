@@ -32,8 +32,6 @@ const contextGoBackBtn = document.querySelector(
 
 const displayField = document.querySelector("#card-output");
 
-contextModal.showModal();
-
 addContextBtn.addEventListener("click", () => {
   contextModal.showModal();
   modal.close();

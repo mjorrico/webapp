@@ -4,6 +4,6 @@ views = Blueprint("views", __name__)
 
 @views.route("/")
 def home():
-    page = render_template("home.html")
+    page = render_template("sql.html")
     resp = make_response(page)
     return resp
