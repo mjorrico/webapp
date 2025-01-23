@@ -3,3 +3,6 @@ venv
 __pycache__
 bundle.js
 img_4213.jpg
+.env
+*.log
+*.sock
